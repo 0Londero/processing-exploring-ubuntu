@@ -1,0 +1,12 @@
+.venv
+*.class
+bin/
+out/
+application.*/
+**/app/out/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
