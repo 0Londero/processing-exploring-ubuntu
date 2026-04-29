@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="images/pucpr.png" width="200px" alt="Logo da Universidade">
+</div>
+
 # Explorando o Linux Ubuntu
 
 Projeto desenvolvido para a disciplina de **Experiência Criativa** da **Pontifícia Universidade Católica do Paraná (PUCPR)**.
