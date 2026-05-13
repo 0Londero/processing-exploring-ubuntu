@@ -1,11 +1,16 @@
 PImage fundo;
+PImage pacote_ubuntu;
 PFont regular;
 PFont bold;
+int tela_atual = 0;
 
 void gerenciamento_instalacao(){
-    fundo = loadImage("images/fundo_guilherme.jpg");
-    image(fundo,0,0,width, height);
-    menu();
+    if (tela_atual == 0){
+        menu();
+    }
+    if (tela_atual == 1){
+        pacotes();
+    }
 }
 
 void botoes(float x, float y, float w,float h,float r){
@@ -18,9 +23,11 @@ void botoes(float x, float y, float w,float h,float r){
 }
 
 void menu(){
-    regular = createFont("images/Ubuntu-Regular.ttf", height/19.2);
-    bold = createFont("images/Ubuntu-Bold.ttf", height/17);
-    smooth(10);
+    fundo = loadImage("images/fundo_guilherme.jpg");
+    image(fundo,0,0,width, height);
+    regular = createFont("images/Ubuntu-Regular.ttf", 40);
+    bold = createFont("images/Ubuntu-Bold.ttf", 50);
+    textAlign(CENTER, CENTER);
 
     //Titulo
     fill(58,0,46);
@@ -28,38 +35,70 @@ void menu(){
     //Texto Título
     fill(233,84,32);
     textFont(bold);
-    textAlign(CENTER, CENTER);
     text("Gerenciamento de Pacotes e Instalação de Programas",(width/18.21)+((width/1.11)/2),(height/38)+((height/5.12)/2));
+
     //Botao superior esquerdo
     fill(58,0,46);
     botoes(width/18.21, height/3.37, width/2.27, height/5.12, height/19.2);
     //Texto botão superior esquerdo
     fill(233,84,32);
     textFont(regular);
-    textAlign(CENTER, CENTER);
-    text("O que são pacotes e\n Gerenciadores de pacotes",(width/18.21)+((width/2.27)/2),(height/3.37)+((height/5.12)/2));
+    text("O que são pacotes e\n gerenciadores de pacotes",(width/18.21)+((width/2.27)/2),(height/3.37)+((height/5.12)/2));
+
     //Botao superior direito
     fill(58,0,46);
     botoes(width/1.95, height/3.37, width/2.27, height/5.12, height/19.2);
     //Texto botão superior direito
     fill(233,84,32);
     textFont(regular);
-    textAlign(CENTER, CENTER);
     text("Como o Ubuntu\n instala os programas",(width/1.95)+((width/2.27)/2),(height/3.37)+((height/5.12)/2));
+
     //Botao inferior esquerdo
     fill(58,0,46);
     botoes(width/18.21, height/1.6, width/2.27, height/5.12, height/19.2);
     //Texto botão inferior esquerdo
     fill(233,84,32);
     textFont(regular);
-    textAlign(CENTER, CENTER);
     text("Comandos Principais",(width/18.21)+((width/2.27)/2),(height/1.6)+((height/5.12)/2));
+
     //Botao inferior direito
     fill(58,0,46);
     botoes(width/1.95, height/1.6, width/2.27, height/5.12, height/19.2);
     //Texto botão inferior direito
     fill(233,84,32);
     textFont(regular);
-    textAlign(CENTER, CENTER);
     text("Vantagens do\n sistema Ubuntu",(width/1.95)+((width/2.27)/2),(height/1.6)+((height/5.12)/2));
 }
+
+void pacotes(){
+    fundo = loadImage("images/fundo_guilherme.jpg");
+    pacote_ubuntu = loadImage("images/pacote_ubuntu.png");
+    image(fundo,0,0,width, height);
+    regular = createFont("images/Ubuntu-Regular.ttf", 40);
+    bold = createFont("images/Ubuntu-Bold.ttf", 50);
+    textAlign(CENTER, CENTER);
+
+    //Título
+    fill(58,0,46);
+    botoes(width/18.21, height/38, width/1.11, height/6, height/19.2);
+    fill(233,84,32);
+    textFont(bold);
+    text("O que são pacotes e gerenciadores de pacotes",(width/18.21)+((width/1.11)/2),(height/38)+((height/6)/2));
+
+    //Explicação
+    fill(58,0,46);
+    botoes(width/18.21, height/4.5, width/1.4, height/5.12, height/19.2);
+    fill(233,84,32);
+    textFont(regular);
+    textSize(25);
+    text("Pacotes são arquivos que armazenam programas e todos os \ncomponentes necessários para seu funcionamento, como bibliotecas e dependências.\nNo Ubuntu, o gerenciamento desses pacotes é feito pelo APT,\n sistema responsável por instalar, atualizar e remover programas de forma automática e segura.",(width/18.21)+((width/1.4)/2),(height/4.5)+((height/5.12)/2));
+    image(pacote_ubuntu, width/1.24, height/4.5, width/6.41, height/5.12);
+}
+
+void mousePressed(){
+    if (mouseX >= width/18.21 && mouseX <= width/2.02 && mouseY >= height/3.37 && mouseY <= height/2.03){
+        tela_atual = 1;
+    }
+}
+
+//final da tela = width/1.04

@@ -1,5 +1,6 @@
 void setup() {
     fullScreen();
+    smooth(10);
 }
 
 void draw() {
