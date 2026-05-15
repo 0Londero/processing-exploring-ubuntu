@@ -1,6 +1,7 @@
 PImage fundo;
 PImage pacote_ubuntu;
 PImage pacote_desenho;
+PImage fluxograma;
 PFont regular;
 PFont bold;
 int tela_atual = 0;
@@ -61,6 +62,7 @@ void pacotes(){
     fundo = loadImage("images/fundo_guilherme.jpg");
     pacote_ubuntu = loadImage("images/pacote_ubuntu.png");
     pacote_desenho = loadImage("images/pacote_desenho.png");
+    fluxograma = loadImage("images/fluxograma.png");
     image(fundo,0,0,width, height);
     regular = createFont("images/Ubuntu-Regular.ttf", 40);
     bold = createFont("images/Ubuntu-Bold.ttf", 50);
@@ -84,11 +86,15 @@ void pacotes(){
     image(pacote_desenho, width/18.21, height/2.25, width/4.55, height/2.56);
 
     //Explicação de cada termo no pacote
-    botoes(width/3.54, height/2.25, width/2.73, height/1.92, height/19.2);
+    botoes(width/3.54, height/2.25, width/2.57, height/1.89, height/19.2);
     fill(233,84,32);
     textFont(regular);
     textSize(25);
-    text("Programa:\nAplicação principal que o usuário deseja \ninstalar e utilizar.\nBiblioteca:\nConjunto de funções e recursos\n usados por programas para executar tarefas específicas.\nDependências:\nArquivos e componentes necessários para\n que o programa funcione corretamente.\nArquivos:\nDocumentos internos do software responsáveis\n pelo funcionamento da aplicação.\nConfigurações:\nInformações que definem preferências\n e comportamento do programa no sistema.",(width/3.54)+(width/2.73/2), (height/2.25)+(height/1.92/2));
+    text("Programa:\nAplicação principal que o usuário deseja \ninstalar e utilizar.\nBiblioteca:\nConjunto de funções e recursos usados\n por programas para executar tarefas específicas.\nDependências:\nArquivos e componentes necessários para\n que o programa funcione corretamente.\nArquivos:\nDocumentos internos do software responsáveis\n pelo funcionamento da aplicação.\nConfigurações:\nInformações que definem preferências\n e comportamento do programa no sistema.",(width/3.54)+(width/2.57/2), (height/2.25)+(height/1.89/2));
+
+    //Fluxograma
+    botoes(width/1.47, height/2.25, width/3.53, height/1.89, height/19.2);
+    image(fluxograma, width/1.5, height/2.35, width/2.8, height/1.7);
 
     //Botão de voltar
     botao_voltar();
