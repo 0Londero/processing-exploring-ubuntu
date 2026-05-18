@@ -1,11 +1,3 @@
-PImage fundo;
-PImage pacote_ubuntu;
-PImage pacote_desenho;
-PImage fluxograma;
-PImage instalacao;
-PFont regular;
-PFont bold;
-Movie terminal;
 int tela_atual = 0;
 boolean mostrar_video = false;
 
@@ -22,10 +14,7 @@ void gerenciamento_instalacao(){
 }
 
 void menu(){
-    fundo = loadImage("images/fundo_guilherme.jpg");
     image(fundo,0,0,width, height);
-    regular = createFont("images/Ubuntu-Regular.ttf", 40);
-    bold = createFont("images/Ubuntu-Bold.ttf", 50);
     textAlign(CENTER, CENTER);
 
     //Titulo
@@ -65,13 +54,7 @@ void menu(){
 }
 
 void pacotes(){
-    fundo = loadImage("images/fundo_guilherme.jpg");
-    pacote_ubuntu = loadImage("images/pacote_ubuntu.png");
-    pacote_desenho = loadImage("images/pacote_desenho.png");
-    fluxograma = loadImage("images/fluxograma.png");
     image(fundo,0,0,width, height);
-    regular = createFont("images/Ubuntu-Regular.ttf", 40);
-    bold = createFont("images/Ubuntu-Bold.ttf", 50);
     textAlign(CENTER, CENTER);
 
     //Título
@@ -107,12 +90,7 @@ void pacotes(){
 }
 
 void instalacao(){
-    fundo = loadImage("images/fundo_guilherme.jpg");
-    instalacao = loadImage("images/instalacao.png");
     image(fundo,0,0,width, height);
-    regular = createFont("images/Ubuntu-Regular.ttf", 40);
-    bold = createFont("images/Ubuntu-Bold.ttf", 50);
-    terminal = new Movie(this, "images/terminal.mp4");
     textAlign(CENTER, CENTER);
 
     //Título
@@ -130,7 +108,7 @@ void instalacao(){
 
     //Fluxo Instalação
     botoes(width/18.21, height/2.4, width/1.8, height/2.5, height/38.4);
-    image(instalacao, width/19, height/2.7, width/1.8, height/1.8);
+    image(instalacaoimg, width/19, height/2.7, width/1.8, height/1.8);
 
     //Video terminal
     botoes(width/1.6, height/2.4, width/2.95, height/2.5, height/38.4);
@@ -139,10 +117,11 @@ void instalacao(){
         image(terminal, width/4, height/4, width/2, height/2);
     }
 
-    if (terminal.time() >= terminal.duration()-0.1){
+    if (mostrar_video && terminal.time() >= terminal.duration()-0.1){
         mostrar_video = false;
         terminal.stop();
     }
+
     botao_voltar();
 }
 
@@ -155,11 +134,15 @@ void mousePressed(){
             tela_atual = 2;
         }
     }
-    else if(tela_atual == 1 || tela_atual == 2 || tela_atual == 3 || tela_atual == 4){
+    else if(tela_atual == 1){
         if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
             tela_atual = 0;
         }
-        else if (mouseX >= width/1.6 && mouseX <= width/1.04 && mouseY >= height/2.4 && mouseY <= height/1.22){
+    }else if(tela_atual ==2){
+        if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
+            tela_atual = 0;
+        }
+        if (mouseX >= width/1.6 && mouseX <= width/1.04 && mouseY >= height/2.4 && mouseY <= height/1.22){
             terminal.play();
             mostrar_video = true;
         }
