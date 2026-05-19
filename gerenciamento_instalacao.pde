@@ -5,11 +5,14 @@ void gerenciamento_instalacao(){
     if (tela_atual == 0){
         menu();
     }
-    if (tela_atual == 1){
+    else if (tela_atual == 1){
         pacotes();
     }
-    if (tela_atual == 2){
+    else if (tela_atual == 2){
         instalacao();
+    }
+    else if (tela_atual ==3){
+        comandos();
     }
 }
 
@@ -126,6 +129,29 @@ void instalacao(){
     botao_voltar();
 }
 
+void comandos(){
+    image(fundo,0,0,width, height);
+    textAlign(CENTER, CENTER);
+
+    //Título
+    botoes(width/18.21, height/12.8, width/1.11, height/7.68, height/38.4);
+    fill(233,84,32);
+    textFont(bold);
+    text("Comandos Principais",(width/18.21)+((width/1.11)/2),(height/12.8)+((height/7.68)/2));
+
+    //Explicação
+    botoes(width/18.21, height/4.5, width/1.11, height/5.5, height/38.4);
+    fill(233,84,32);
+    textFont(regular);
+    textSize(25);
+    text("O terminal permite controlar o sistema através de comandos de texto.\nCom poucos comandos, é possível instalar programas, atualizar o sistema e remover softwares rapidamente.",(width/18.21)+((width/1.11)/2),(height/4.5)+((height/5.5)/2));
+
+    //Imagem comandos
+    image(imgterminal, width/18.21, height/2.4, width/2.3, height/2.3);
+
+    botao_voltar();
+}
+
 void mousePressed(){
     if (tela_atual == 0){
         if (mouseX >= width/18.21 && mouseX <= width/2.02 && mouseY >= height/3.37 && mouseY <= height/2.03){
@@ -134,18 +160,25 @@ void mousePressed(){
         if (mouseX >= width/1.95 && mouseX <= width/1.04 && mouseY >= height/3.37 && mouseY <= height/2.03){
             tela_atual = 2;
         }
+        if (mouseX >= width/18.21 && mouseX <= width/2.02 && mouseY >= height/1.6 && mouseY <= height/1.22){
+            tela_atual = 3;
+        }
     }
     else if(tela_atual == 1){
         if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
             tela_atual = 0;
         }
-    }else if(tela_atual ==2){
+    }else if(tela_atual == 2){
         if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
             tela_atual = 0;
         }
         if (mouseX >= width/1.6 && mouseX <= width/1.04 && mouseY >= height/2.4 && mouseY <= height/1.22){
             terminal.play();
             mostrar_video = true;
+        }
+    }else if(tela_atual == 3){
+        if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
+            tela_atual = 0;
         }
     }
 }

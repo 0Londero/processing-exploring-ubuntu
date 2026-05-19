@@ -5,6 +5,7 @@ PImage pacote_desenho;
 PImage fluxograma;
 PImage instalacaoimg;
 PImage firefox;
+PImage imgterminal;
 PFont regular;
 PFont bold;
 Movie terminal;
@@ -16,6 +17,7 @@ void setup_gi(){
     fluxograma = loadImage("images/fluxograma.png");
     instalacaoimg = loadImage("images/instalacao.png");
     firefox = loadImage("images/firefox.png");
+    imgterminal = loadImage("images/imgterminal.png");
     regular = createFont("images/Ubuntu-Regular.ttf", 40);
     bold = createFont("images/Ubuntu-Bold.ttf", 50);
     terminal = new Movie(this, "terminal.mp4");
