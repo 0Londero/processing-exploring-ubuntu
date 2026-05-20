@@ -11,8 +11,11 @@ void gerenciamento_instalacao(){
     else if (tela_atual == 2){
         instalacao();
     }
-    else if (tela_atual ==3){
+    else if (tela_atual == 3){
         comandos();
+    }
+    else if (tela_atual == 4){
+        vantagens();
     }
 }
 
@@ -149,6 +152,46 @@ void comandos(){
     //Imagem comandos
     image(imgterminal, width/18.21, height/2.4, width/2.3, height/2.3);
 
+    //Explicação dos comandos
+    botoes(width/2, height/2.4, width/2.2, height/2.3, height/38.4);
+    fill(233,84,32);
+    textFont(regular);
+    textSize(25);
+    text("Update: Atualiza a lista de programas disponíveis nos \nrepositórios do Ubuntu.\nUpgrade: Instala versões mais recentes \ndos programas já presentes no sistema.\nInstall: Instala um programa automaticamente junto\n com suas dependências.\nRemove: Remove um programa instalado\n do sistema.\nApt search: Pesquisa programas disponíveis nos\n repositórios do Ubuntu.", (width/2)+((width/2.2)/2), (height/2.4)+((height/2.3)/2));
+
+    botao_voltar();
+}
+
+void vantagens(){
+    image(fundo,0,0,width, height);
+    textAlign(CENTER, CENTER);
+
+    //Título
+    botoes(width/18.21, height/12.8, width/1.11, height/7.68, height/38.4);
+    fill(233,84,32);
+    textFont(bold);
+    text("Vantagens do sistema Ubuntu",(width/18.21)+((width/1.11)/2),(height/12.8)+((height/7.68)/2));
+
+    //Explicação
+    botoes(width/18.21, height/4.5, width/1.11, height/5.5, height/38.4);
+    fill(233,84,32);
+    textFont(regular);
+    textSize(25);
+    text("O Ubuntu oferece um sistema organizado e eficiente para gerenciamento de softwares.\nIsso melhora a estabilidade do sistema, facilita atualizações\n e torna o uso mais prático para o usuário.",(width/18.21)+((width/1.11)/2),(height/4.5)+((height/5.5)/2));
+
+    //Cards
+    botoes(width/18.21, height/2.4, width/4.52, height/2.3, height/38.4);
+    image(vantagem1, width/18.21, height/2.4, width/4.52, height/2.3);
+
+    botoes(width/3.52, height/2.4, width/4.52, height/2.3, height/38.4);
+    image(vantagem2, width/3.52, height/2.4, width/4.52, height/2.3);
+
+    botoes(width/1.95, height/2.4, width/4.52, height/2.3, height/38.4);
+    image(vantagem3, width/1.95, height/2.4, width/4.52, height/2.3);
+
+    botoes(width/1.35, height/2.4, width/4.62, height/2.3, height/38.4);
+    image(vantagem4, width/1.35, height/2.4, width/4.62, height/2.3);
+    
     botao_voltar();
 }
 
@@ -162,6 +205,9 @@ void mousePressed(){
         }
         if (mouseX >= width/18.21 && mouseX <= width/2.02 && mouseY >= height/1.6 && mouseY <= height/1.22){
             tela_atual = 3;
+        }
+        if (mouseX >= width/1.95 && mouseX <= width/1.04 && mouseY >= height/1.6 && mouseY <= height/1.22){
+            tela_atual = 4;
         }
     }
     else if(tela_atual == 1){
@@ -177,6 +223,10 @@ void mousePressed(){
             mostrar_video = true;
         }
     }else if(tela_atual == 3){
+        if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
+            tela_atual = 0;
+        }
+    }else if (tela_atual == 4){
         if (mouseX >= width/18.21 && mouseX <= (width/18.21)*2 && mouseY >= height/1.16 && mouseY <= (height/1.16)+(height/10.24)){
             tela_atual = 0;
         }
