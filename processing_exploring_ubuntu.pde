@@ -6,7 +6,7 @@ PImage pinguimLinux;
 PImage terminalDerbian;
 PImage ImglogoUbuntu;
 PImage ImgubuntuNav;
-
+PImage slackwarelogo;
 
 
 int tela = 0;
@@ -24,7 +24,7 @@ void setup() {
   ubuntuBold = createFont("Ubuntu-Bold.ttf", 40);
   ImgGNU = loadImage("GNU.png");
   pinguimLinux = loadImage("pinguim_linux.png");
-  terminalDerbian = loadImage("terminalDerbian.jpg");
+  slackwarelogo = loadImage("Slackware-Logo.png");
   ImglogoUbuntu = loadImage("logoUbuntu.png");
   ImgubuntuNav = loadImage("UbuntuNav.jpg");
 }
